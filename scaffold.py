@@ -11,7 +11,7 @@ from model import *  # noqa: F401, F403 (pulls in your solution functions)
 import numpy as np
 import gymnasium as gym
 
-from solution import (
+from model import (
     init_q_table,
     max_q_value,
     greedy_action,

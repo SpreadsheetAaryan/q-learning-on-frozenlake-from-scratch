@@ -1,14 +1,39 @@
-# Q-Learning on FrozenLake from Scratch
+# Q-learning on FrozenLake from scratch
 
-Build a tabular Q-learning agent that learns to navigate the FrozenLake environment using an epsilon-greedy exploration strategy. You'll implement every piece from the Q-table and update rule to training loops and greedy evaluation.
+A tabular Q-learning agent for the FrozenLake environment in Gymnasium, written with NumPy: the Q-table, epsilon-greedy exploration with decay, the temporal-difference update, a training loop, and greedy evaluation.
 
-## How to run
+This is a guided implementation from [Deep-ML](https://www.deep-ml.com): the project is broken into small steps, and I wrote each function in `model.py`. `scaffold.py` runs the whole pipeline end to end.
+
+## What's implemented
+
+- **Q-table** initialisation and lookups (`max_q_value`, `greedy_action`).
+- **Exploration:** epsilon-greedy action selection with exponential epsilon decay.
+- **Learning:** TD target, TD error, and the Q-learning update.
+- **Training and evaluation:** episode loop, greedy policy extraction, and success rate over many greedy episodes.
+
+## Run it
 
 ```bash
+pip install -r requirements.txt
 python scaffold.py
 ```
 
-## Steps
+Sample output (CPU, a few seconds):
+
+```
+FrozenLake: 16 states, 4 actions
+Q-table shape: (16, 4)
+Greedy policy (first 8 states): [2, 2, 1, 0, 1, 0, 1, 0]
+Single greedy episode reached goal: True
+Greedy success rate over 100 episodes: 1.00
+```
+
+## Notes
+
+- The greedy policy reaches the goal in 100 of 100 evaluation episodes on the deterministic map.
+
+<details>
+<summary>All implementation steps</summary>
 
 - [x] **1.** init_q_table
 - [x] **2.** max_q_value
@@ -30,3 +55,5 @@ python scaffold.py
 ---
 
 Built on Deep-ML.
+
+</details>
